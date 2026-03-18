@@ -1,37 +1,20 @@
+# src/utils/custom_exceptions.py
+
 class TikTokRecorderError(Exception):
-    """Base exception for all TikTok Recorder errors."""
-
-    def __init__(self, message):
-        super().__init__(message)
-
-
-class UserLiveError(TikTokRecorderError):
-    """Error related to user live status."""
-
-    def __init__(self, message):
-        super().__init__(message)
-
-
-class IPBlockedByWAF(TikTokRecorderError):
-    """Raised when IP is blocked by WAF."""
-
-    def __init__(self, message="IP blocked by WAF"):
-        super().__init__(message)
-
-
-class LiveNotFound(TikTokRecorderError):
-    """Raised when a live stream is not found."""
-
+    """Basexception för alla fel i recordern."""
     pass
 
 
 class ArgsParseError(TikTokRecorderError):
-    """Raised for argument parsing errors."""
-
+    """Fel vid parsning av kommandoradsargument."""
     pass
 
 
-class NetworkError(TikTokRecorderError):
-    """Raised for network-related errors."""
+class LiveNotFound(TikTokRecorderError):
+    """Live-ström kunde inte hittas eller room_id ogiltig."""
+    pass
 
+
+class UserLiveError(TikTokRecorderError):
+    """Användaren är inte live när vi förväntade oss det."""
     pass

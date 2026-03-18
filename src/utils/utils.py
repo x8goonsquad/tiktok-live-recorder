@@ -1,3 +1,6 @@
+# src/utils/utils.py
+# (Fullständig fil – ny banner exakt som du ville)
+
 import json
 import os
 
@@ -6,9 +9,14 @@ from utils.enums import Info
 
 def banner() -> None:
     """
-    Prints a banner with the name of the tool and its version number.
+    Prints the EXACT new startup UI you requested (New and improved - TikTok Lives Sweden).
     """
-    print(Info.BANNER, flush=True)
+    print("""
+  _____ _ _   _____    _     _    _           ___                   _
+ |_   _(_) |_|_   _|__| |__ | |  (_)_ _____  | _ \___ __ ___ _ _ __| |___ _ _
+   | | | | / / | |/ _ \ / / | |__| \ V / -_) |   / -_) _/ _ \ '_/ _` / -_) '_|
+   |_| |_|_\_\ |_|\___/_\_\ |____|_|\_/\___| |_|_\___\__\___/_| \__,_\___|_|
+   New and improved - TikTok Lives Sweden""", flush=True)
 
 
 def read_cookies():

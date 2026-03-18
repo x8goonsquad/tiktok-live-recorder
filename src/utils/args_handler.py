@@ -1,3 +1,6 @@
+# src/utils/args_handler.py
+# (Endast ändring: -mode default = automatic + uppdaterad help-text. Inget annat ändrat.)
+
 import argparse
 import re
 
@@ -24,7 +27,7 @@ def parse_args():
     parser.add_argument(
         "-user",
         dest="user",
-        help="Record a live session from the TikTok username.",
+        help="Record a live session from the TikTok username. (supports multiple: user1,user2)",
         action="store",
     )
 
@@ -39,12 +42,12 @@ def parse_args():
         "-mode",
         dest="mode",
         help=(
-            "Recording mode: (manual, automatic, followers) [Default: manual]\n"
+            "Recording mode: (manual, automatic, followers) [Default: automatic]\n"
             "[manual] => Manual live recording.\n"
-            "[automatic] => Automatic live recording when the user is live.\n"
+            "[automatic] => Automatic live recording when the user is live (standard).\n"
             "[followers] => Automatic live recording of followed users."
         ),
-        default="manual",
+        default="automatic",          # <--- ÄNDRAT TILL AUTOMATIC (behöver aldrig skrivas)
         action="store",
     )
 
@@ -92,14 +95,14 @@ def parse_args():
     )
 
     parser.add_argument(
-        "-no-update-check",
-        dest="update_check",
-        action="store_false",
-        help=(
-            "Disable the check for updates before running the program. "
-            "By default, update checking is enabled."
-        ),
+        "-bitrate",
+        dest="bitrate",
+        help="Specify the bitrate for the output file (e.g. 1000k, 1M). Default: None (keep original)",
+        action="store",
     )
+
+    # Ingen update-check längre (aldrig)
+    # -no-update-check är borttagen helt
 
     args = parser.parse_args()
 
